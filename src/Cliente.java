@@ -13,18 +13,18 @@ public class Cliente
 	
 	private	String				nome;
 	private	int					cpf;
-	private String 				dataNascimento;
+	private Data 				dataNascimento;
 	private String				eMail;
 	private ArrayList<String>	telefone;
 	private String				login;
-	private int					senha;
+	private String				senha;
 	private ArrayList<Compra>	histCompras;
 	
 	
 	
 	//Encapsulando
 	
-	public Cliente(String nome, int cpf, String nasc, String mail, String tel, String login, int senha)
+	public Cliente(String nome, int cpf, Data nasc, String mail, String tel, String login, String senha)
 	{
 		this.nome				= nome;
 		this.cpf				= cpf;
@@ -43,54 +43,70 @@ public class Cliente
 	{
 		return nome;
 	}
-
-
-
+	
 	public void setNome(String nome) 
 	{
 		this.nome = nome;
 	}
 
-
-
 	public int getCpf() 
 	{
 		return cpf;
 	}
+	
+	public void setCpf(int cpf) 
+	{
+		this.cpf = cpf;
+	}
 
-
-
-	public String getDataNascimento() 
+	public Data getDataNascimento() 
 	{
 		return dataNascimento;
 	}
+	
+	public void setDataNascimento(Data nascimento) 
+	{
+		this.dataNascimento	=	nascimento;
+	}
 
-
-
-	public String geteMail() 
+	public String getEmail() 
 	{
 		return eMail;
 	}
 
-
-
-	public void seteMail(String eMail) 
+	public void setEmail(String eMail) 
 	{
 		this.eMail = eMail;
 	}
-
-
 
 	public ArrayList<String> getTelefone() 
 	{
 		return telefone;
 	}
 
-
-
 	public void setNovoTelefone(String telefone) 
 	{
 		this.telefone.add(telefone);
+	}
+	
+	public String getLogin() 
+	{
+		return login;
+	}
+	
+	public void setLogin(String login) 
+	{
+		this.login	=	login;
+	}
+	
+	public String getSenha() 
+	{
+		return senha;
+	}
+	
+	public void setSenha(String senha) 
+	{
+		this.senha = senha;
 	}
 
 	//Historico de Compras
@@ -98,6 +114,11 @@ public class Cliente
 	public void addCompra (Compra compra)
 	{
 		histCompras.add(compra);
+	}
+	
+	public ArrayList<Compra> getHistoricoCompras() 
+	{
+		return histCompras;
 	}
 
 

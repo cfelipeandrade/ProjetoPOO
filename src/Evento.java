@@ -8,41 +8,101 @@ import java.util.ArrayList;
 
 public class Evento 
 {
-	// Atributos Cliente
+	// Atributos Evento
 
-	protected String					data;
-	protected String					horarioRealizacao;
+	protected String					nome;
+	protected Data						data;
+	protected Hora						hora;	
+	protected Ambiente					local;
 	protected ArrayList<Ingresso>		ingressos;
-	
+
 	//Encapsulando
-	
-	public Evento(String data, String horario)
+
+	public Evento(Data data, Hora hora, Ambiente local)
 	{
-		this.data 				=	data;
-		this.horarioRealizacao 	=	horario;
-		this.ingressos 			=	new ArrayList<>();
+		this.data 				=		data;
+		this.hora				= 		hora;
+		this.ingressos 			=		new ArrayList<>();
+		this.setLocalDeRealização(local);
 	}
 
 	//Getters & Setters
-	
-	public String getData() {
+
+	public Data getData() 
+	{
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(Data data) 
+	{
 		this.data = data;
 	}
 
-	public String getHorarioRealizacao() {
-		return horarioRealizacao;
+	public Hora getHora() 
+	{
+		return hora;
 	}
 
-	public void setHorarioRealizacao(String horarioRealizacao) {
-		this.horarioRealizacao = horarioRealizacao;
+	public void setHora(Hora hora) 
+	{
+		this.hora = hora;
+	}
+
+	public ArrayList<Ingresso> getIngressos() 
+	{
+		return ingressos;
+	}
+
+	public void setIngressos(ArrayList<Ingresso> ingressos) 
+	{
+		this.ingressos = ingressos;
+	}
+	
+
+	public Ambiente getLocal() 
+	{
+		return local;
+	}
+
+	public void setLocalDeRealização(Ambiente local) 
+	{
+		this.local = local;
+	}
+	
+	public ArrayList<Ingresso> gerarIngressos (float preco)
+	{
+		int totalIngressos = local.getCapacidadeTotal();
+		
+		for (int i=0; i<totalIngressos; i++)
+		{
+			Ingresso ing = new Ingresso (i, preco);
+			ingressos.add(ing);
+		}
+		return ingressos;
 	}
 	
 	
+	public void getDados()
+	{
+		System.out.print("Data "+data);
+		System.out.print(" Hora: "+hora);
+		System.out.print(" Local de Realização : " +local);
+
+	}
 	
-	
-	
+	public Ingresso getIngresso()
+	{
+		Ingresso ing = null;
+		
+		for (Ingresso ingresso : ingressos)
+		{
+			if(!ingresso.isVendido())
+			{
+				ing = ingresso;
+				ing.setVendido();
+				break;
+			}
+		}
+		return ing;
+	}
 }

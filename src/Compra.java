@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * 
  * @author Felipe Andrade
@@ -6,22 +8,45 @@
 
 public class Compra 
 {
-
-	private float		precoTotal;
-	private String		formaPagamento;
-	private String		dataCompra;
-	private int			quantIngresso;
+	// Atributos Compra
+	
+	private int 					numero;
+	private double					precoTotal;
+	private String					formaPagamento;
+	private int						quantIngresso;
+	private Evento					evento;
+	private ArrayList<Ingresso> 	ingresso;
 	
 	//Encapsulando
 	
-	public Compra(float preco, String pagamento, String data)
+	public Compra(int numero, float preco, String pagamento)
 	{
-		this.precoTotal 	= preco;
-		this.formaPagamento = pagamento;
-		this.dataCompra		= data;
+		this.numero 		= 	numero;
+		this.precoTotal 	= 	preco;
+		this.formaPagamento = 	pagamento;
 	}
 	
 	//Getters & Setters
+	
+	public int getNumero() 
+	{
+		return numero;
+	}
+	
+	public void setNumero(int numero) 
+	{
+		this.numero = numero;
+	}
+	
+	public double getValor() 
+	{
+		return precoTotal;
+	}
+	
+	public void setValor(float preco) 
+	{
+		this.precoTotal = preco;
+	}
 	
 	public void setFpagamento(String pagamento)
 	{
@@ -32,16 +57,25 @@ public class Compra
 	{
 		return formaPagamento;
 	}
-
-
-	public String getDataCompra() {
-		return dataCompra;
+	
+	public int getQuantidade() {
+		return quantIngresso;
 	}
 
-
-	public void setDataCompra(String dataCompra) {
-		this.dataCompra = dataCompra;
+	public void setQuantidade(int quantidade) {
+		this.quantIngresso = quantidade;
 	}
 	
-	
+	public double valorCompra(int quantidade, float preco){
+		return ingresso.get(0).getPreco()*quantidade;
+	}
+
+	public void getIngressos(int quantidade)
+	{
+		for (int i = 0 ; i < quantidade ; i++)
+		{
+			Ingresso ing = evento.getIngresso();
+			ingresso.add(ing);
+		}
+	}
 }

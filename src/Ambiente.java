@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * 
  * @author Felipe Andrade
@@ -8,97 +6,65 @@ import java.util.ArrayList;
 
 public class Ambiente 
 {
-
-	private	String				nome;
-	private String				localizacao;
-	private ArrayList<String>	pontosReferencia;
-	private int					capacidadeTotal;
-	private ArrayList<String>	setores;
-	private int					vagasEstacionamento;
-	private String				tipoAmbiente;
+	// Atributos Ambiente
+	
+	protected	String				localizacao;
+	protected 	String 				pontoDeReferencia;
+	protected 	int					capacidadeTotal;
+	protected 	int					vagasEstacionamento;
 	
 	
-	public Ambiente(String nome, String localizacao, String[] referencia, int capacidade, String[] setores, int vagas)
+	//Encapsulando
+	
+	public Ambiente(String localizacao, String referencia, int vagas, int capacidade)
 	{
-		this.nome 					=	nome;
 		this.localizacao			=	localizacao;
-		this.pontosReferencia 		=	new ArrayList<>();
-		this.capacidadeTotal 		=	capacidade;
-		this.setores 				=	new ArrayList<>();
+		this.pontoDeReferencia 		=	referencia;
 		this.vagasEstacionamento 	=	vagas;
-				
+		this.capacidadeTotal 		=	capacidade;
+					
 	}
 
 	//Getters & Setters
 
-	public String getNome() {
-		return nome;
-	}
-
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-
-	public String getLocalizacao() {
+	public String getLocalizacao() 
+	{
 		return localizacao;
 	}
 
-
-	public void setLocalizacao(String localizacao) {
+	public void setLocalizacao(String localizacao) 
+	{
 		this.localizacao = localizacao;
 	}
 
-
-	public ArrayList<String> getPontosReferencia() {
-		return pontosReferencia;
+	public String getPontosReferencia() 
+	{
+		return pontoDeReferencia;
 	}
 
-
-	public void setPontosReferencia(ArrayList<String> pontosReferencia) {
-		this.pontosReferencia = pontosReferencia;
+	public void setPontosReferencia(String pontosReferencia) 
+	{
+		this.pontoDeReferencia = pontosReferencia;
 	}
 
-
-	public int getCapacidadeTotal() {
-		return capacidadeTotal;
-	}
-
-
-	public void setCapacidadeTotal(int capacidadeTotal) {
-		this.capacidadeTotal = capacidadeTotal;
-	}
-
-
-	public ArrayList<String> getSetores() {
-		return setores;
-	}
-
-
-	public void setSetores(ArrayList<String> setores) {
-		this.setores = setores;
-	}
-
-
-	public int getVagasEstacionamento() {
+	public int getVagasEstacionamento() 
+	{
 		return vagasEstacionamento;
 	}
 
-
-	public void setVagasEstacionamento(int vagasEstacionamento) {
+	public void setVagasEstacionamento(int vagasEstacionamento) 
+	{
 		this.vagasEstacionamento = vagasEstacionamento;
 	}
-
-
-	public String getTipoAmbiente() {
-		return tipoAmbiente;
-	}
-
-
-	public void setTipoAmbiente(String tipoAmbiente) {
-		this.tipoAmbiente = tipoAmbiente;
-	}
 	
+	public int getCapacidadeTotal() 
+	{
+		return capacidadeTotal;
+	}
+
+	public void setCapacidadeTotal(int capacidade) 
+	{
+		this.capacidadeTotal = capacidade;
+	}
 	
 }
